@@ -35,7 +35,10 @@ Rename this module to "main" and run the server to see this template in action.
 from os import path, system
 
 # Retrieve the absolute path to current directory, this will allow the usage of any files placed in this folder
-PATH = path.dirname(__file__)
+PATH = path.normpath(path.dirname(__file__))
+
+# Get the challenge name, this will make name changes very easy, as only the folder name has to be changed
+NAME = __name__.split(".")[0]
 
 
 # Define your main function - remember that it has to take EXACTLY 2 arguments - server and arguments passed in the
@@ -49,7 +52,7 @@ def main(server, data):
     if switch == 1:
 
         # Check using server's cache if the file exists (here simple check - check if specified cache entry exists)
-        if "template" in server.cache:
+        if NAME + "_template_test" in server.cache:
 
             # Load and the contents of "output.txt" if yes
             message = load_message() + "\r\n"
@@ -77,7 +80,7 @@ def main(server, data):
         message = "Script executed, message saved, cache populated." + "\r\n"
 
         # Populate the cache
-        server.cache["template"] = True
+        server.cache[NAME + "_template_test"] = True
 
     # Send the prepared message to the client
     server.send(message)
