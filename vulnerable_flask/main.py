@@ -1,10 +1,16 @@
+# Content from http://www.eveandersson.com/pi/poetry/
+
 from os import path
 from random import choice
 from vulnerable_flask.website import start_app
+from multiprocessing import Process
 
 # Declare paths to the files
 PATH = path.dirname(__file__)
 FLAG_PATH = path.join(PATH, "secrets", "flag.txt")
+
+# Get the challenge name
+NAME = __name__.split(".")[0]
 
 
 def main(server, data):
@@ -19,25 +25,35 @@ def main(server, data):
     if switch == 1:
 
         # Generate the flag
-        flag = generate_flag(12)
+        flag = generate_flag(32)
 
         # Inform what flag was generated
-        print("Flask: Generated following flag: " + flag)
-
-        # Add the flag to cache, to check the answer later
-        server.cache["flask_flag"] = flag
+        print(NAME + ": Generated following flag: " + flag)
 
         # Save the flag to the file
         save_flag(flag)
 
-        # Run the server
-        start_app()
+        # Avoid running server twice
+        if NAME + "_flag" not in server.cache.keys():
+
+            # Inform that a website is being created
+            print(NAME + ": Creating website...")
+
+            # Run the server
+            Process(target=start_app).start()
+
+            # Inform when it was loaded
+            print(NAME + ": Website created!")
+
+        # Add the flag to cache, to check the answer later
+        server.cache[NAME + "_flag"] = flag
 
     # If the help argument was included
     elif switch == 2 and data[1] == "help":
 
         # Build the help message
-        message = "Helpful message describing the usage of command." + "\r\n"
+        message = "!" + NAME + " - starts the flask challenge described under id 02 on the website" + "\r\n" + \
+                  "!" + NAME + " <answer> - checks the answer of the flask challenge" + "\r\n" \
 
     # If any non-help arguments were included
     else:
@@ -46,13 +62,13 @@ def main(server, data):
         answer = data[1]
 
         # Check if the flag was actually generated before
-        if "flask_flag" in server.cache.keys():
+        if NAME + "_flag" in server.cache.keys():
 
             # Inform what answer was received
-            print("Flask: Received following answer: " + answer)
+            print(NAME + ": Received following answer: " + answer)
 
             # Check if the answer is correct
-            if answer == server.cache.get("flask_flag"):
+            if answer == server.cache.get(NAME + "_flag"):
                 # Send the "correct!" message if the answer matches the flag
                 message = "Correct! Well done!" + "\r\n"
             else:
@@ -60,15 +76,15 @@ def main(server, data):
                 message = "Incorrect! Try again!" + "\r\n"
 
         else:
-            # Inform the user that !vulnerable_flask hasn't been executed yet
-            message = "No website was ran yet! Type !vulnerable_flask before sending an answer to it." + "\r\n"
+            # Inform the user that the challenge hasn't been executed yet
+            message = "No website was ran yet! Type !" + NAME + " before sending an answer to it." + "\r\n"
 
     # Send the prepared message to the client
     server.send(message)
 
 
 def generate_flag(length):
-    return "{" + "".join(choice("abcdefghijklmnopqrstuvwxyz_") for _ in range(length)) + "}"
+    return "".join(choice("abcdefghijklmnopqrstuvwxyz_") for _ in range(length))
 
 
 def save_flag(flag):
