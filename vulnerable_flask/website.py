@@ -59,7 +59,3 @@ def get_text(file):
 
     # Correct query - Windows: /?path=%26type%20secrets\flag.txt
     # Correct query - Linux: /path=%26cat%20secrets/flag.txt
-
-
-if __name__ == "__main__":
-    start_app()
