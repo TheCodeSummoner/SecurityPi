@@ -8,6 +8,6 @@ A student from a local university has paid you to help him find vulnerabilities 
 
 Find the *flag* (32-characters long string). You can access the website via a browser, after starting the challenge. The address is the IP address used to connect to the PI.
 
-#### Example
+#### Example solution
 
-Example flag - *domdpjbknopzhjusmxstjcvvgonizjyn*
+Example flag - *domdpjbknopzhjusmxstjcvvgonizjyn*. The flag is the answer.
