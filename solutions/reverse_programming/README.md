@@ -12,3 +12,6 @@ No solution uploaded so far. To solve the challenge, one must locally try all ke
 
 Custom client to automate the process of connecting, decryption etc. is present in the *client.py* file.
 
+## Conclusion
+
+Avoid using easily reversible functions, they will never be secure in any context. Use tested, popular encryption mechanisms to exchange messages safely, for example with public-private key algorithms.
