@@ -45,6 +45,9 @@ def main(server, data):
             # Inform when it was loaded
             print(NAME + ": Website created!")
 
+            # Send the message that a website was created
+            message = "Website started!" + "\r\n"
+
         # Add the flag to cache, to check the answer later
         server.cache[NAME + "_flag"] = flag
 
