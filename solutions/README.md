@@ -1,3 +1,3 @@
 ## Solutions
 
-All the directories are corresponding to the challenges. Further information within each folder.
+All the directories correspond to certain challenges. Further information within each folder.
