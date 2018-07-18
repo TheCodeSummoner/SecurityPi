@@ -52,8 +52,8 @@ def main(server, data):
     elif switch == 2 and data[1] == "help":
 
         # Build the help message
-        message = "!" + NAME + " - starts the flask challenge described under id 02 on the website" + "\r\n" + \
-                  "!" + NAME + " <answer> - checks the answer of the flask challenge" + "\r\n" \
+        message = "!" + NAME + " - starts the vulnerable flask challenge" + "\r\n" + \
+                  "!" + NAME + " <answer> - checks the answer of the challenge" + "\r\n" \
 
     # If any non-help arguments were included
     else:

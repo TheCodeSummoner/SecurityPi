@@ -50,10 +50,10 @@ def main(server, data):
     elif switch == 2 and data[1] == "help":
 
         # Build the help message
-        message = "!" + NAME + " - starts the programming challenge described under id 01 on the website" + "\r\n" + \
+        message = "!" + NAME + " - starts the reverse programming challenge" + "\r\n" + \
                   "!" + NAME + " <answer> - checks the answer of the programming challenge" + "\r\n" \
-                  "!" + NAME + " no_key - starts the previous challenge, but with an unknown key of length 5" + "\r\n" \
-                  "!" + NAME + " no_key <answer> - checks the answer of the no_key challenge" + "\r\n"
+                  "!" + NAME + " no_key - starts the reverse programming challenge, but with an unknown key" + "\r\n" \
+                  "!" + NAME + " no_key <answer> - checks the answer of the no_key programming challenge" + "\r\n"
 
     # If a no_key argument was included, generate a key, encrypt a message and start the challenge
     elif switch == 2 and data[1] == "no_key":
