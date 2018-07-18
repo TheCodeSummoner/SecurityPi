@@ -56,6 +56,3 @@ def get_text(file):
 
     # Vulnerable to code injection command listing contents of a file
     return getoutput(cmd)
-
-    # Correct query - Windows: /?path=%26type%20secrets\flag.txt
-    # Correct query - Linux: /path=%26cat%20secrets/flag.txt
