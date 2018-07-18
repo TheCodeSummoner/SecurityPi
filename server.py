@@ -36,8 +36,7 @@ In your challenge you can access:
 While it is not possible to restrict the access to other variables or methods, I do not encourage to use them.
 
 Please refer to the template files for additional guidance regarding making your own challenge, including good practice.
-The template can be found (where? website? With Charles?)
-# TODO: Specify where to find it
+Templates can be found in the templates folder
 
 === Example ===
 
@@ -49,19 +48,18 @@ Output: Invalid command. Type !help to display available commands.
 Input: !help
 Output: Here are the available commands:
  - !help
- - !reverse
+ - !reverse_programming
 To learn more about each command, type <command> help.
 To add arguments to a command, type <command> <argument1> <argument2> (...)
 
-Input: !reverse help
-Output: !reverse - starts the programming challenge described under id 01 on the website
-!reverse <answer> - checks the answer of the programming challenge
-!reverse no_key - starts the previous challenge, but with an unknown key of length 5
-!reverse no_key <answer> - checks the answer of the no_key challenge
+Input: !reverse_programming help
+Output: !reverse_programming - starts the programming challenge
+!reverse_programming <answer> - checks the answer of the programming challenge
+!reverse_programming no_key - starts the previous challenge, but with an unknown key of length 5
+!reverse_programming no_key <answer> - checks the answer of the no_key challenge
 
-Note that "!reverse help" command had to be coded within the reverse function, and used the data argument to achieve
-desired functionality (precisely, in that case data = ["!reverse", "help"])
-
+Note that "!reverse_programming help" command had to be coded within the reverse function, and used the data argument to
+achieve desired functionality (precisely, in that case data = ["!reverse_programming", "help"])
 """
 
 from os import listdir, path
