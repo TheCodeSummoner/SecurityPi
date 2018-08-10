@@ -6,7 +6,7 @@ A student from a local university has paid you to help him find vulnerabilities 
 
 #### Tasks
 
-Find the *flag* (32-characters long string). You can access the website via a browser, after starting the challenge. The address is the IP address used to connect to the PI.
+Find the *flag* (32-characters long string). You can access the website via a browser, after starting the challenge. The address is the IP address used to connect to the PI. The port is 5000. Example connection - *http://169.254.69.188:5000*
 
 #### Example solution
 

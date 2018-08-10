@@ -2,11 +2,11 @@
 
 #### Vulnerability
 
-The website is vulnerable to commands injection, as no input checking has been implemented. It is possible to find the *flag.txt* file by injecting *ls* command and navigating over the directories, and later retrieve the contents of it with *cat* command.
+The website is vulnerable to commands injection, as no input checking has been implemented. It is possible to find the *flag.txt* file by injecting *ls* command and navigating over the directories, and later retrieve the contents of it, for example with *cat* command injection or simple directory traversal.
 
 #### Correct queries
 
-Correct queries are present in the *Correct_queries* file.
+Correct query is present in the *correct_query* file.
 
 ## Conclusion
 
