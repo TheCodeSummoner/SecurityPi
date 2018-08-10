@@ -78,7 +78,7 @@ class Client:
                 elif "Correct!" in data or "Incorrect!" in data:
                     break
 
-                # Stop sending messages if the iterator can't be increased more (no more commands to send)
+            # Stop sending messages if the iterator can't be increased more (no more commands to send)
             if index != len(self.commands):
 
                 # Get next command to send
@@ -95,5 +95,5 @@ class Client:
 
 
 if __name__ == "__main__":
-    c = Client()  # ip="169.254.69.188"
+    c = Client()  # Set the ip for non-localhost connections
     c.run()

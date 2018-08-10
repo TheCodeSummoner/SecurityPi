@@ -4,7 +4,7 @@ Server with challenges for the internship at Newcastle University, supervised by
 
 ## Connecting to the server
 
-The server is ran on PI's boot. Connecting to it requires ip address and port. The port is always **50000**, and the ip address is the PI's ip address. Example software that can be used to connect to it is netcat (command *nc ip port*).
+The server is ran on PI's boot. Connecting to it requires ip address and port. The port is always **50000**, and the ip address is the PI's ip address. Example software that can be used to connect to it is *netcat* (command *nc ip port*) or *PuTTY*.
 
 ## Solving the challenges
 
