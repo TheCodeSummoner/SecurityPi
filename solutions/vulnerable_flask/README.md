@@ -2,7 +2,7 @@
 
 #### Vulnerability
 
-The website is vulnerable to commands injection, as no input checking has been implemented. It is possible to find the *flag.txt* file by injecting *ls* command and navigating over the directories, and later retrieve the contents of it, for example with *cat* command injection or simple directory traversal.
+The website is vulnerable to commands injection, as no input checking has been implemented. It is possible to find the *flag.txt* file by injecting *ls* command and navigating over the directories, and later retrieve the contents of it, for example with *cat* command injection or simple directory traversal. Remember to use [Percent-encoding](https://en.wikipedia.org/wiki/Percent-encoding) in your query.
 
 #### Correct queries
 
