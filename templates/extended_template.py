@@ -67,7 +67,7 @@ def main(server, data):
         # Build the help message, remember to put "\r\n" for a new line
         message = "Helpful message describing the usage of command." + "\r\n"
 
-    # You can handle more situations, but remember that to put "else" at the end or check for "more than n" arguments
+    # You can handle more situations, but remember to put "else" at the end or check for "more than n" arguments
     else:
 
         # Build an echo command with given arguments and save the output to the "output.txt" file in current folder
