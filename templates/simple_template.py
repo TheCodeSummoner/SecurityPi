@@ -46,7 +46,7 @@ def main(server, data):
         # Do something
         pass
 
-    # You can handle more situations, but remember that to put "else" at the end or check for "more than n" arguments
+    # You can handle more situations, but remember to put "else" at the end or check for "more than n" arguments
     else:
 
         # Do something, in this case if 2 or more arguments were passed, ex. !command answer1 answer2
