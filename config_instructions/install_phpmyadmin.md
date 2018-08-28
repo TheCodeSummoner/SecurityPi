@@ -10,7 +10,7 @@ To install and setup the software needed for the *phpmyadmin* challenge.
 sudo apt-get install apache2 mariadb-server-10.1 php -y
 ```
 
-2. Run following command (agree to everything), choose Apache2 and put no password for the database (click *yes* twice):
+2. Run following command (agree to everything), choose Apache2, put no password for the database (select *yes* twice):
 
 ```
 sudo apt-get install phpmyadmin -y
@@ -22,7 +22,7 @@ sudo apt-get install phpmyadmin -y
 sudo nano /etc/apache2/apache2.conf
 ```
 
-4. In the config file, at following line to the end of the file:
+4. In the config file, add the following line to the end of the file:
 
 ```
 Include /etc/phpmyadmin/apache.conf
