@@ -33,7 +33,7 @@ Example file content:
 # By default this script does nothing.
 
 # Run the server
-sudo python3.6 /home/pi/Desktop/SecurityPi/server.py 2> /home/pi/Desktop/error &
+sudo python3.6 /home/pi/Desktop/SecurityPi/server.py 2> /home/pi/Desktop/server_errors &
 
 # Print the IP address
 _IP=$(hostname -I) || true
@@ -43,6 +43,8 @@ fi
 
 exit 0
 ```
+
+This should run the server infitely as well as redirect all errors to the *server_errors* file on desktop.
 
 ### Source
 
