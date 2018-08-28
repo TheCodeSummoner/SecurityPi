@@ -6,7 +6,7 @@ You can use a web browser to access all the services. The *phpMyAdmin* login sit
 
 #### Correct command
 
-Correct SQL command is present in the *correct_query* file. After executing it, the file content can be viewed at *ip/backdoor.php* (where *ip* is PI's ip).
+Correct SQL command is present in the *correct_command* file. After executing it, the file content can be viewed at *ip/backdoor.php* (where *ip* is PI's ip).
 
 ## Conclusion
 
