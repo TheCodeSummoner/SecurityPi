@@ -44,7 +44,7 @@ fi
 exit 0
 ```
 
-This should run the server infitely as well as redirect all errors to the *server_errors* file on desktop.
+This should run the server infinitely as well as redirect all errors to the *server_errors* file on desktop.
 
 ### Source
 
