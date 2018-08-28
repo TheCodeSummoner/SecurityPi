@@ -1,9 +1,49 @@
-From https://www.dexterindustries.com/howto/run-a-program-on-your-raspberry-pi-at-startup/
+### Purpose
 
-1. Run 'sudo nano /etc/rc.local'
-2. Edit the file - add 'sudo python /home/pi(...)/server.py &' (or python3.6 if python2.7 is default)
+To run the server on boot.
 
-Notes:
+### Instructions
 
-"If your program runs continuously (runs an infinite loop) or is likely not to exit, you must be sure to
-fork the process by adding an ampersand ("&") to the end of the command."
+1. Run the following command:
+
+```
+sudo nano /etc/rc.local
+```
+
+2. Add the following line to the file (before the default script which can print IP):
+
+```
+sudo python3.6 /home/pi/Desktop/SecurityPi/server.py & 2> /home/pi/Desktop/server_errors
+```
+
+Example file content:
+
+```
+#!/bin/sh -e
+#
+# rc.local
+#
+# This script is executed at the end of each multiuser runlevel.
+# Make sure that the script will "exit 0" on success or any other
+# value on error.
+#
+# In order to enable or disable this script just change the execution
+# bits.
+#
+# By default this script does nothing.
+
+# Run the server
+sudo python3.6 /home/pi/Desktop/SecurityPi/server.py 2> /home/pi/Desktop/error &
+
+# Print the IP address
+_IP=$(hostname -I) || true
+if [ "$_IP" ]; then
+printf "My IP address is %s\n" "$_IP"
+fi
+
+exit 0
+```
+
+### Source
+
+https://www.dexterindustries.com/howto/run-a-program-on-your-raspberry-pi-at-startup/
