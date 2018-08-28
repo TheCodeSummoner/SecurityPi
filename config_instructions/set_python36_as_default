@@ -1,7 +1,0 @@
-From https://linuxconfig.org/how-to-change-from-default-to-alternative-python-version-on-debian-linux
-
-1. Run this block of commands
-
-update-alternatives --install /usr/bin/python python /usr/bin/python2.7 1
-update-alternatives --install /usr/bin/python python /usr/local/bin/python3.6 2
-exit
