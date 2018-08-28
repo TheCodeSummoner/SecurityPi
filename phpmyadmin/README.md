@@ -6,7 +6,7 @@ You have heard from many trustworthy sources that the DevOps working on the proj
 
 #### Task
 
-Find the *flag* (32-characters long string). You can access the website via a browser. The address is the IP address used to connect to the PI. Example connection - *http://169.254.69.188*
+Find the *flag* (32-characters long string). You can access the main website via a browser. The address is the IP address used to connect to the PI. Example connection - *http://169.254.69.188*
 
 #### Example solution
 
