@@ -1,8 +1,8 @@
-## *phpMyAdmin* shell exploit
+## phpMyAdmin shell exploit
 
-You were asked to review the system security of a recently built learning-platform for Raspberry-Pi.
+*phpMyAdmin* is a free software tool written in PHP, intended to handle the administration of MySQL over the Web. You were asked to review the system security of a recently built learning-platform for Raspberry-Pi, which has phpMyAdmin installed.
 
-You have heard from many trustworthy sources that the DevOps working on the project are extremely lazy and, among other security issues introduced through their negligence, they gave access to the folder with website files to every user registered on the system. You believe this could be the crucial flaw in their system and decide to focus on exploiting it first.
+You have heard from many trustworthy sources that the DevOps working on the project are extremely lazy and, among other security issues introduced through their negligence, have given access to the folder with website files to every user registered on the system. You believe this could be the crucial flaw in their system and decide to focus on exploiting it.
 
 #### Task
 
