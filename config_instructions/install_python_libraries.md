@@ -1,6 +1,6 @@
 ### Purpose
 
-To install libraries needed for any of the challenges.
+To install libraries needed for the challenges.
 
 ### Instructions
 
