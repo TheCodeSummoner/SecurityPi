@@ -1,8 +1,12 @@
 ## Solution
 
+#### Logging in
+
+You can use a web browser to access all the services. The *phpMyAdmin* login site is at *ip/phpmyadmin* (where *ip* is PI's ip) and can be further accessed via the root login with default credentials (login *root* with no password).
+
 #### Shell exploit
 
-You can use a web browser to access all the services. The *phpMyAdmin* login site is at *ip/phpmyadmin* (where *ip* is PI's ip) and can be further accessed via the root login with default credentials (login *root* with no password). Despite user restrictions, it is possible to inject a malicious file using a SQL command, because the folder with website files (*/var/www/html*) has read/write permissions set for all users. The file itself should contain a PHP script that calls shell and prints the output.
+Despite user restrictions, it is possible to inject a malicious file using a SQL command, because the folder with website files (*/var/www/html*) has read/write permissions set for all users. The file itself should contain a PHP script that calls shell and prints the output.
 
 #### Correct command
 
