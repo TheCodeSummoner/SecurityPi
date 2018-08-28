@@ -34,7 +34,7 @@ Include /etc/phpmyadmin/apache.conf
 sudo service apache2 restart
 ```
 
-The service should now be accesible from a webbrowser via localhost/phpmyadmin (or ip/phpmyadmin where ip is PI's ip).
+The service should now be accesible from a web browser via localhost/phpmyadmin (or ip/phpmyadmin where ip is PI's ip).
 
 **TO BE CHECKED**
 
