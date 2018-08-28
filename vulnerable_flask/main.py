@@ -56,7 +56,7 @@ def main(server, data):
 
         # Build the help message
         message = "!" + NAME + " - starts the vulnerable flask challenge" + "\r\n" + \
-                  "!" + NAME + " <answer> - checks the answer of the challenge" + "\r\n" \
+                  "!" + NAME + " <answer> - checks the answer of the challenge" + "\r\n"
 
     # If any non-help arguments were included
     else:
