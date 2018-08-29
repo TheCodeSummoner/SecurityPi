@@ -114,8 +114,8 @@ class Server:
         # Iterate over each subfolder
         for directory in directories:
 
-            # Ignore all non-directories
-            if directory is not None:
+            # Ignore all non-directories (ignore None types)
+            if directory:
 
                 try:
                     # Check if a following command already exists (name clash)
@@ -182,12 +182,8 @@ class Server:
                     # Fix if a invalid character was sent (ex. Putty's telnet sends hex characters at start)
                     data = None
 
-                # Fix data if strip returned empty string (ex. Putty's telnet sends \r\n on hitting enter)
-                if not data:
-                    data = None
-
-                # If data was valid
-                if data is not None:
+                # If data was valid (ex. Putty's telnet sends \r\n on hitting enter, which is not valid)
+                if data:
 
                     # Inform what data was received
                     print("Received: " + data)

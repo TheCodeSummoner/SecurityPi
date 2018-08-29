@@ -41,11 +41,7 @@ class Client:
                 data = None
 
             # If there was any data received
-            if data is not None:
-
-                # If 0-byte was received, close the connection
-                if not data:
-                    break
+            if data:
 
                 # Convert bytes to string
                 data = data.decode("utf-8")
