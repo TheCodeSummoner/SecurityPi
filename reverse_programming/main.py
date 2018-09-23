@@ -121,16 +121,8 @@ def main(server, data):
             # Check if the message to encrypt was actually generated before
             if NAME + "_message" in server.cache.keys():
 
-                # Initialise an answer string
-                answer = ""
-
-                # Build the answer string
-                for arg in data[1:]:
-                    answer += arg
-                    answer += " "
-
-                # Remove the whitespace character on the end
-                answer = answer[:-1]
+                # Build an answer string
+                answer = " ".join(arg for arg in data[1:])
 
                 # Inform what answer was received
                 print(NAME + ": Received following answer: " + answer)
