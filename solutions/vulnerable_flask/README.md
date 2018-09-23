@@ -8,7 +8,7 @@ The website is vulnerable to commands injection, as no input checking has been i
 
 Correct query is present in the *correct_query* file.
 
-Example command injection steps to get the location of the flag:
+Example command injection steps to get the flag:
 
 1. `IP:PORT/?path=` - Gets the current directory location
 2. `IP:PORT/?path=%26ls%20/home/pi/Desktop/SecurityPi/vulnerable_flask/` - Lists what is inside the current directory
