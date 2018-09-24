@@ -11,10 +11,10 @@ def generate(server, name, path):
     words = " ".join(x for x in read_words(path))
 
     # Inform what words were generated
-    print(name + " emperor: Generated following words: " + words)
+    print(name + " feel_the_challenge: Generated following words: " + words)
 
     # Add the key to the cache, to check the answer later
-    server.cache[name + "_emperor"] = words
+    server.cache[name + "_feel_the_challenge"] = words
 
     # Generate the cipher text
     cipher_text = generate_cipher_text(words)
@@ -29,13 +29,13 @@ def generate(server, name, path):
 def check_answer(server, name, answer):
 
     # Check if the challenge was ran before
-    if name + "_emperor" in server.cache.keys():
+    if name + "_feel_the_challenge" in server.cache.keys():
 
             # Inform what answer was received
-            print(name + " emperor: Received following answer: " + answer)
+            print(name + " feel_the_challenge: Received following answer: " + answer)
 
             # Check if the answer is correct
-            if answer == server.cache.get(name + "_emperor"):
+            if answer == server.cache.get(name + "_feel_the_challenge"):
                 # Send the "correct!" message if the answer matches the message
                 return "Correct! Well done!" + "\r\n"
             else:
@@ -43,8 +43,8 @@ def check_answer(server, name, answer):
                 return "Incorrect! Try again!" + "\r\n"
 
     else:
-        # Inform the user that emperor task hasn't been executed yet
-        return "No message was generated first! Type !" + name + " emperor before sending an answer to it." + "\r\n"
+        # Inform the user that feel_the_challenge task hasn't been executed yet
+        return "No message was generated first! Type !" + name + " feel_the_challenge before sending an answer to it." + "\r\n"
 
 
 def read_words(path):
@@ -73,40 +73,15 @@ def read_words(path):
 
 def generate_cipher_text(words):
     # Perform the caesar shift
-    rotated_letters = rotate_letters(words)
-    # Perform the box cipher
-    cipher_text = box_encode_letters(rotated_letters)
+    cipher_text = encode_letters(words)
     # Return the cipher text
     return cipher_text
 
 
-def rotate_letters(letters):
-    # Hard coded shift value
-    shift = 13
-
+def encode_letters(letters):
     # Perform the shift
     alphabet = str.ascii_lowercase
-    shifted_alphabet = alphabet[shift:] + alphabet[:shift]
-    table = str.maketrans(alphabet, shifted_alphabet)
+    braille_alphabet = "⠁⠃⠉⠙⠑⠋⠛⠓⠊⠚⠅⠇⠍⠝⠕⠏⠟⠗⠎⠞⠥⠧⠺⠭⠽⠵"
+    table = str.maketrans(alphabet, braille_alphabet)
     return letters.translate(table)
 
-
-def box_encode_letters(letters):
-    # Calculate the number of columns to use
-    key = math.ceil(math.sqrt(len(letters)))
-    order = {
-        int(val): num for num, val in enumerate(key)
-    }
-    cipher_text = ''
-
-    for index in sorted(order.keys()):
-        for part in split_len(letters, len(key)):
-            try:
-                cipher_text += part[order[index]]
-            except IndexError:
-                continue
-    return cipher_text
-
-
-def split_len(seq, length):
-    return [seq[i:i + length] for i in range(0, len(seq), length)]

@@ -11,10 +11,10 @@ def generate(server, name, path):
     words = " ".join(x for x in read_words(path))
 
     # Inform what words were generated
-    print(name + " emperor: Generated following words: " + words)
+    print(name + " fibres: Generated following words: " + words)
 
     # Add the key to the cache, to check the answer later
-    server.cache[name + "_emperor"] = words
+    server.cache[name + "_fibres"] = words
 
     # Generate the cipher text
     cipher_text = generate_cipher_text(words)
@@ -29,13 +29,13 @@ def generate(server, name, path):
 def check_answer(server, name, answer):
 
     # Check if the challenge was ran before
-    if name + "_emperor" in server.cache.keys():
+    if name + "_fibres" in server.cache.keys():
 
             # Inform what answer was received
-            print(name + " emperor: Received following answer: " + answer)
+            print(name + " fibres: Received following answer: " + answer)
 
             # Check if the answer is correct
-            if answer == server.cache.get(name + "_emperor"):
+            if answer == server.cache.get(name + "_fibres"):
                 # Send the "correct!" message if the answer matches the message
                 return "Correct! Well done!" + "\r\n"
             else:
@@ -43,8 +43,8 @@ def check_answer(server, name, answer):
                 return "Incorrect! Try again!" + "\r\n"
 
     else:
-        # Inform the user that emperor task hasn't been executed yet
-        return "No message was generated first! Type !" + name + " emperor before sending an answer to it." + "\r\n"
+        # Inform the user that fibres task hasn't been executed yet
+        return "No message was generated first! Type !" + name + " fibres before sending an answer to it." + "\r\n"
 
 
 def read_words(path):
