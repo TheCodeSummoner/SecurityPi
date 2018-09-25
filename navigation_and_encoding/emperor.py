@@ -1,5 +1,6 @@
 from random import random
 import math
+import string
 
 # Get the base challenge name
 NAME = __name__.split(".")[0]
@@ -20,10 +21,11 @@ def generate(server, name, path):
     cipher_text = generate_cipher_text(words)
 
     # Output the cipher text to a file - TODO FILE NAME
-    file_out = open("myfile.txt", "w")
-    file_out.write(cipher_text)
+    # file_out = open("myfile.txt", "w")
+    # file_out.write(cipher_text)
     # Inform the user that the challenge was generated successfully
-    return "Successfully generated the challenge." + "\r\n"  # add information about where to find the task
+    # testing
+    return "Successfully generated the challenge. The generation was " + cipher_text + "\r\n"  # add information about where to find the task
 
 
 def check_answer(server, name, answer):
@@ -85,7 +87,7 @@ def rotate_letters(letters):
     shift = 13
 
     # Perform the shift
-    alphabet = str.ascii_lowercase
+    alphabet = string.ascii_lowercase
     shifted_alphabet = alphabet[shift:] + alphabet[:shift]
     table = str.maketrans(alphabet, shifted_alphabet)
     return letters.translate(table)
