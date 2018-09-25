@@ -72,41 +72,12 @@ def read_words(path):
 
 
 def generate_cipher_text(words):
-    # Perform the caesar shift
-    rotated_letters = rotate_letters(words)
-    # Perform the box cipher
-    cipher_text = box_encode_letters(rotated_letters)
-    # Return the cipher text
-    return cipher_text
+    return split(convert_to_binary(words))
 
 
-def rotate_letters(letters):
-    # Hard coded shift value
-    shift = 13
-
-    # Perform the shift
-    alphabet = str.ascii_lowercase
-    shifted_alphabet = alphabet[shift:] + alphabet[:shift]
-    table = str.maketrans(alphabet, shifted_alphabet)
-    return letters.translate(table)
+def convert_to_binary(letters):
+    return ''.join(format(ord(x), 'b') for x in letters)
 
 
-def box_encode_letters(letters):
-    # Calculate the number of columns to use
-    key = math.ceil(math.sqrt(len(letters)))
-    order = {
-        int(val): num for num, val in enumerate(key)
-    }
-    cipher_text = ''
-
-    for index in sorted(order.keys()):
-        for part in split_len(letters, len(key)):
-            try:
-                cipher_text += part[order[index]]
-            except IndexError:
-                continue
-    return cipher_text
-
-
-def split_len(seq, length):
-    return [seq[i:i + length] for i in range(0, len(seq), length)]
+def split(letters):
+    return letters[::2] + "\n" + letters[1::2]
