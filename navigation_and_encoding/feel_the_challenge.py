@@ -1,5 +1,5 @@
 from random import random
-import math
+import string
 
 # Get the base challenge name
 NAME = __name__.split(".")[0]
@@ -80,7 +80,7 @@ def generate_cipher_text(words):
 
 def encode_letters(letters):
     # Perform the shift
-    alphabet = str.ascii_lowercase
+    alphabet = string.ascii_lowercase
     braille_alphabet = "⠁⠃⠉⠙⠑⠋⠛⠓⠊⠚⠅⠇⠍⠝⠕⠏⠟⠗⠎⠞⠥⠧⠺⠭⠽⠵"
     table = str.maketrans(alphabet, braille_alphabet)
     return letters.translate(table)

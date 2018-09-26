@@ -97,12 +97,12 @@ def box_encode_letters(letters):
     # Calculate the number of columns to use
     key = math.ceil(math.sqrt(len(letters)))
     order = {
-        int(val): num for num, val in enumerate(key)
+        int(val): num for num, val in enumerate(range(0,key))
     }
     cipher_text = ''
 
     for index in sorted(order.keys()):
-        for part in split_len(letters, len(key)):
+        for part in split_len(letters, key):
             try:
                 cipher_text += part[order[index]]
             except IndexError:
