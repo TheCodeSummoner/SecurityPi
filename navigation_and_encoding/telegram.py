@@ -76,17 +76,26 @@ def generate_cipher_text(words):
     file_object = open("flag.txt", "r")
     template = file_object.read()
     file_object.close()
-    
+
     # create the flag sentence
     flag_string = "FLAG:" + words
-    
+
     # format to 42 char total length
-    flag_string= '{:<42}'.format(flag_string[:42])
+    flag_string = '{:<42}'.format(flag_string[:42])
 
     # alter the flag text
-    cipher_text = template.replace("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", flag_string,1)
-    # alter the flag text
-    
+    ascii_art = template.replace("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", flag_string, 1)
+    # convert to binary
+    binary = ' '.join('{0:08b}'.format(ord(x), 'b') for x in ascii_art)
+    # convert to morse
+    binary_to_morse = {
+        '0': '----- ',
+        '1': '.---- ',
+        ' ': '/ '
+    }
+    cipher_text = ""
+    for c in binary:
+        cipher_text += " " + (''.join(str((binary_to_morse[c]))))
     return cipher_text
 
 
