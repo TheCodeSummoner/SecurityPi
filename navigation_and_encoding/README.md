@@ -22,14 +22,14 @@ to solving these tasks. Not all of the tasks can be completed with this tool alo
 some of them!
 
 
-###Emperor
+### Emperor
 This challenge forms the introduction to the challenges. It combines some basic terminal skills 
 with some classical ciphers to ease users into the challenges.
 
-####Task
+#### Task
 Locate the generated file, decode the cipher text and submit the answer.
 
-####Solution
+#### Solution
 1. Navigate to the directory as advised by the server
 2. Open the file to view the cipher text
 3. Perform a Caesars' box (transposition) cipher
@@ -37,14 +37,14 @@ Locate the generated file, decode the cipher text and submit the answer.
 5. Submit the 5 words to the server
 
 
-###Ring Ring
+### Ring Ring
 This challenge has some additional complexity, requiring resources not contained within the CyberChef tool, 
 as well as some creative interpretation of supplied information!
 
-####Task
+#### Task
 Locate the generated file, decode the cipher text and submit the answer.
 
-####Solution
+#### Solution
 1. Navigate to the output directory used in the previous task.
 2. As prompted by the server message, list hidden files
 3. Open the file and view the cipher text
@@ -53,26 +53,26 @@ Locate the generated file, decode the cipher text and submit the answer.
 6. Submit the answer to the server
 
 
-###Feel The Challenge
+### Feel The Challenge
 This task uses a commonly found but possibly seldom known format that may leave some users scratching their heads!
 
-####Task
+#### Task
 Decode the cipher text and submit the answer.
 
-####Solution
+#### Solution
 1. Read the symbols from the server
 2. Identify the symbols as 6 dot Braille patterns
 3. Convert them to text
 4. Submit the answer to the server
 
 
-###Fibres
+### Fibres
 This task requires the user to do a bit more googling based on subtle clues given in server messages. 
 It also relies on the user either doing some pen and paper work or coding a solution.
-####Task
+#### Task
 Locate the generated file, decode the cipher text and submit the answer.
 
-####Solution
+#### Solution
 1. Navigate to the file in the output folder
 2. Open the file to see two streams of binary values
 3. Use the optical de-interleaver clue to discover that one string is all the odd bits and the other is all the evens
@@ -80,12 +80,12 @@ Locate the generated file, decode the cipher text and submit the answer.
 5. Convert from binary to text
 6. Submit the answer to the server
 
-###Telegram
+### Telegram
 This final task will require the user to do a more complex command to access the flag but the reward is well worth it!
-####Task
+#### Task
 Locate the generated file, decode the cipher text and submit the answer.
 
-####Solution
+#### Solution
 1. Locate the file in the output directory
 2. Untar the file using the terminal
 3. View the file contents
@@ -94,5 +94,5 @@ Locate the generated file, decode the cipher text and submit the answer.
 6. Bask in the glorious reward
 7. Submit the answer to the server
 
-###Author
+### Author
 Matthew B
