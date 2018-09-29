@@ -66,6 +66,7 @@ from os import listdir, path
 from importlib import import_module
 import socket
 
+
 class Server:
 
     def __init__(self, host_ip='0.0.0.0', port=50000):
@@ -109,7 +110,6 @@ class Server:
 
         # Retrieve immediate child directories of root directory
         directories = [child if path.isdir(path.join(root, child)) else None for child in listdir(root)]
-        print(directories)
         # Iterate over each subfolder
         for directory in directories:
 

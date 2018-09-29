@@ -5,13 +5,8 @@ import navigation_and_encoding.feel_the_challenge as feel_the_challenge
 import navigation_and_encoding.telegram as telegram
 import navigation_and_encoding.fibres as fibres
 
-
-
-
-
 # Get the base challenge name
 NAME = __name__.split(".")[0]
-
 
 # Declare paths to the files
 PATH = path.normpath(path.dirname(__file__))
@@ -28,7 +23,6 @@ TASKS = {
 
 
 def main(server, data):
-
     # Initialise the message to send back to the client
     message = ""
 
@@ -43,7 +37,8 @@ def main(server, data):
                   "!" + NAME + " ring_ring - start the ring_ring challenge" + "\r\n" + \
                   "!" + NAME + " ring_ring <answer> - checks the answer of the ring_ring challenge" + "\r\n" + \
                   "!" + NAME + " feel_the_challenge - start the feel_the_challenge challenge" + "\r\n" + \
-                  "!" + NAME + " feel_the_challenge <answer> - checks the answer of the feel_the_challenge challenge" + "\r\n" + \
+                  "!" + NAME + " feel_the_challenge <answer> - checks the answer of the feel_the_challenge challenge" \
+                  + "\r\n" + \
                   "!" + NAME + " fibres - start the fibres challenge" + "\r\n" + \
                   "!" + NAME + " fibres <answer> - checks the answer of the fibres challenge" + "\r\n" + \
                   "!" + NAME + " telegram - start the telegram challenge" + "\r\n" + \

@@ -23,12 +23,14 @@ def generate(server, name, path):
     # Output the cipher text to a file
     complete_name = os.path.join("navigation_and_encoding/outputs", "emperor.txt")
 
+    # output the file
     file_out = open(complete_name, "w")
     file_out.write(cipher_text)
     file_out.close()
 
     # debug message printing
     print("emperor successfully created:" + cipher_text)
+
     # Inform the user that the challenge was generated successfully
     return "Successfully generated the challenge. Navigate to the output folder to view the task." + "\r\n"
 
@@ -87,7 +89,6 @@ def generate_cipher_text(words):
 def rotate_letters(letters):
     # Hard coded shift value
     shift = 13
-
     # Perform the shift
     alphabet = string.ascii_lowercase
     shifted_alphabet = alphabet[shift:] + alphabet[:shift]
