@@ -1,4 +1,5 @@
 from random import random
+import os.path
 
 # Get the base challenge name
 NAME = __name__.split(".")[0]
@@ -18,13 +19,16 @@ def generate(server, name, path):
     # Generate the cipher text
     cipher_text = generate_cipher_text(words)
 
-    # Output the cipher text to a file - TODO FILE NAME
-    # file_out = open("myfile.txt", "w")
-    # file_out.write(cipher_text)
+    # Output the cipher text to a file
+    complete_name = os.path.join("navigation_and_encoding/outputs", ".ring_ring.txt")
+    file_out = open(complete_name, "w")
+    file_out.write(cipher_text)
+    file_out.close()
+    # print debug message
+    print("ring_ring successfully created:" + cipher_text)
+
     # Inform the user that the challenge was generated successfully
-    # testing
-    return "Successfully generated the challenge. The generation was " + cipher_text + "\r\n"
-    # add information about where to find the task
+    return "Successfully generated the challenge. Check the output folder for the file - it might be hiding!" + "\r\n"
 
 
 def check_answer(server, name, answer):
@@ -104,7 +108,8 @@ def convert_letters(words):
         'w': '00001001 00000000',
         'x': '00001001 00001001 00000000',
         'y': '00001001 00001001 00001001 00000000',
-        'z': '00001001 00001001 00001001 00001001 00000000'
+        'z': '00001001 00001001 00001001 00001001 00000000',
+        ' ': ''
     }
 
     cipher_text = ""

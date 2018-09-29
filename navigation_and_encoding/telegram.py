@@ -1,4 +1,7 @@
 from random import random
+import os.path
+import os
+import tarfile
 # Get the base challenge name
 NAME = __name__.split(".")[0]
 
@@ -17,13 +20,23 @@ def generate(server, name, path):
     # Generate the cipher text
     cipher_text = generate_cipher_text(words)
 
-    # Output the cipher text to a file - TODO FILE NAME
-    # file_out = open("myfile.txt", "w")
-    # file_out.write(cipher_text)
+    # Output the cipher text to a file
+    complete_name = os.path.join("navigation_and_encoding/outputs", "telegram.tar.gz")
+    temp_name = os.path.join("navigation_and_encoding/outputs", "telegram.txt")
+
+    # create the file
+    temp_file_out = open(temp_name, "w")
+    temp_file_out.write(cipher_text)
+    temp_file_out.close()
+
+    with tarfile.open(complete_name, "w:gz") as tar:
+        tar.add(temp_name, arcname=os.path.basename("navigation_and_encoding"))
+        tar.close()
+    os.remove(temp_name)
+    # server debug message
+    print("telegram output successfully created:" + cipher_text)
     # Inform the user that the challenge was generated successfully
-    # testing
-    return "Successfully generated the challenge. The generation was " + cipher_text + "\r\n"
-    # add information about where to find the task
+    return "Successfully generated the challenge. Check the output folder for the file - we compressed it to save space!" + "\r\n"
 
 
 def check_answer(server, name, answer):
@@ -73,7 +86,7 @@ def read_words(path):
     
 def generate_cipher_text(words):
     # template text
-    file_object = open("flag.txt", "r")
+    file_object = open("navigation_and_encoding/flag.txt", "r")
     template = file_object.read()
     file_object.close()
 

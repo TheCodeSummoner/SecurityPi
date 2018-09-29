@@ -1,5 +1,5 @@
 from random import random
-import math
+import os
 
 # Get the base challenge name
 NAME = __name__.split(".")[0]
@@ -19,9 +19,11 @@ def generate(server, name, path):
     # Generate the cipher text
     cipher_text = generate_cipher_text(words)
 
-    # Output the cipher text to a file - TODO FILE NAME
-    file_out = open("myfile.txt", "w")
+    # Output the cipher text to a file
+    complete_name = os.path.join("navigation_and_encoding/outputs", "fibres.txt")
+    file_out = open(complete_name, "w")
     file_out.write(cipher_text)
+    file_out.close()
     # Inform the user that the challenge was generated successfully
     return "Successfully generated the challenge." + "\r\n"  # add information about where to find the task
 

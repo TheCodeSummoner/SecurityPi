@@ -1,13 +1,13 @@
 from random import random
 import math
 import string
+import os.path
 
 # Get the base challenge name
 NAME = __name__.split(".")[0]
 
 
 def generate(server, name, path):
-
     # Create an answer string
     words = " ".join(x for x in read_words(path))
 
@@ -20,29 +20,33 @@ def generate(server, name, path):
     # Generate the cipher text
     cipher_text = generate_cipher_text(words)
 
-    # Output the cipher text to a file - TODO FILE NAME
-    # file_out = open("myfile.txt", "w")
-    # file_out.write(cipher_text)
+    # Output the cipher text to a file
+    complete_name = os.path.join("navigation_and_encoding/outputs", "emperor.txt")
+
+    file_out = open(complete_name, "w")
+    file_out.write(cipher_text)
+    file_out.close()
+
+    # debug message printing
+    print("emperor successfully created:" + cipher_text)
     # Inform the user that the challenge was generated successfully
-    # testing
-    return "Successfully generated the challenge. The generation was " + cipher_text + "\r\n"  # add information about where to find the task
+    return "Successfully generated the challenge. Navigate to the output folder to view the task." + "\r\n"
 
 
 def check_answer(server, name, answer):
-
     # Check if the challenge was ran before
     if name + "_emperor" in server.cache.keys():
 
-            # Inform what answer was received
-            print(name + " emperor: Received following answer: " + answer)
+        # Inform what answer was received
+        print(name + " emperor: Received following answer: " + answer)
 
-            # Check if the answer is correct
-            if answer == server.cache.get(name + "_emperor"):
-                # Send the "correct!" message if the answer matches the message
-                return "Correct! Well done!" + "\r\n"
-            else:
-                # Send the "incorrect!" message if the answer doesn't match the message
-                return "Incorrect! Try again!" + "\r\n"
+        # Check if the answer is correct
+        if answer == server.cache.get(name + "_emperor"):
+            # Send the "correct!" message if the answer matches the message
+            return "Correct! Well done!" + "\r\n"
+        else:
+            # Send the "incorrect!" message if the answer doesn't match the message
+            return "Incorrect! Try again!" + "\r\n"
 
     else:
         # Inform the user that emperor task hasn't been executed yet
@@ -50,9 +54,7 @@ def check_answer(server, name, answer):
 
 
 def read_words(path):
-
     with open(path, encoding="utf-8") as f:
-
         # Get the words from the file
         data = f.readlines()
 
@@ -67,7 +69,7 @@ def read_words(path):
 
         # Populate the list with 5 words randomly chosen from the file
         for i in range(5):
-            words.append(data[int(random()*length)].strip())
+            words.append(data[int(random() * length)].strip())
 
         # Return the populated list
         return words
@@ -97,7 +99,7 @@ def box_encode_letters(letters):
     # Calculate the number of columns to use
     key = math.ceil(math.sqrt(len(letters)))
     order = {
-        int(val): num for num, val in enumerate(range(0,key))
+        int(val): num for num, val in enumerate(range(0, key))
     }
     cipher_text = ''
 
