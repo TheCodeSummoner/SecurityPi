@@ -32,7 +32,7 @@ def generate(server, name, path):
     print("emperor successfully created:" + cipher_text)
 
     # Inform the user that the challenge was generated successfully
-    return "Successfully generated the challenge. Navigate to the output folder to view the task." + "\r\n"
+    return "Caesar's been rotating his box again.. Navigate to the output folder to view the task." + "\r\n"
 
 
 def check_answer(server, name, answer):

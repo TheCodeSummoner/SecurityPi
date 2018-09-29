@@ -28,7 +28,7 @@ def generate(server, name, path):
     print("ring_ring successfully created:" + cipher_text)
 
     # Inform the user that the challenge was generated successfully
-    return "Successfully generated the challenge. Check the output folder for the file - it might be hiding!" + "\r\n"
+    return "You've been sent a message from an old number. Check the output folder for the message - it might be hiding!" + "\r\n"
 
 
 def check_answer(server, name, answer):

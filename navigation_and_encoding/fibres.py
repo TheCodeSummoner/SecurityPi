@@ -24,7 +24,7 @@ def generate(server, name, path):
     file_out.write(cipher_text)
     file_out.close()
     # Inform the user that the challenge was generated successfully
-    return "Successfully generated the challenge." + "\r\n"  # add information about where to find the task
+    return "Successfully generated the challenge. We had to use an optical-deinterleaver however!" + "\r\n"  # add information about where to find the task
 
 
 def check_answer(server, name, answer):
