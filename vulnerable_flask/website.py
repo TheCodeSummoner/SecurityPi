@@ -10,7 +10,7 @@ PATH = path.normpath(path.dirname(__file__))
 NAME = __name__.split(".")[0]
 
 
-def start_app():
+def start_app(*, host="0.0.0.0"):
 
     # Initialise a Flask application
     app = Flask('website')
@@ -32,8 +32,8 @@ def start_app():
         # Return the message so it can be printed to the screen
         return message
 
-    # Run the website on localhost
-    app.run(host="0.0.0.0")
+    # Run the website on specified host, localhost by default
+    app.run(host)
 
 
 def get_text(file):

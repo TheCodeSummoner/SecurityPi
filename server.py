@@ -31,12 +31,12 @@ If the following requirements are met, the server will automatically add a comma
 In your challenge you can access:
 
  - cache variable, it's a python dictionary where you can store information required for your challenge
- - send(data) method, which sends a message to the connected client
+ - send(data) method, which sends a message (string) to the connected client
 
 While it is not possible to restrict the access to other variables or methods, I do not encourage to use them.
 
 Please refer to the template files for additional guidance regarding making your own challenge, including good practice.
-Templates can be found in the templates folder
+Templates can be found in the templates folder.
 
 === Example ===
 
@@ -67,9 +67,10 @@ from importlib import import_module
 import socket
 
 
+# TODO: Add docs of each element
 class Server:
 
-    def __init__(self, host_ip='0.0.0.0', port=50000):
+    def __init__(self, *, host_ip='0.0.0.0', port=50000):
 
         # Save the host and port information
         self.host_ip = host_ip
@@ -109,36 +110,34 @@ class Server:
         root = path.normpath(path.dirname(__file__))
 
         # Retrieve immediate child directories of root directory
-        directories = [child if path.isdir(path.join(root, child)) else None for child in listdir(root)]
-        # Iterate over each subfolder
+        directories = [child for child in listdir(root) if path.isdir(path.join(root, child))]
+
+        # Iterate over each sub-folder
         for directory in directories:
 
-            # Ignore all non-directories (ignore None types)
-            if directory:
+            try:
+                # Check if a following command already exists (name clash)
+                if "!" + directory in self.commands:
+                    raise NameError
 
-                try:
-                    # Check if a following command already exists (name clash)
-                    if "!" + directory in self.commands:
-                        raise NameError
+                # Attempt to add a function from a module that both have the same name as directory
+                self.commands["!" + directory] = getattr(import_module(directory + ".main"), "main")
 
-                    # Attempt to add a function from a module that both have the same name as directory
-                    self.commands["!" + directory] = getattr(import_module(directory + ".main"), "main")
+            # In case a module couldn't be found
+            except ModuleNotFoundError:
+                print("Could not find \"main\" module within the " + directory + " folder.")
 
-                # In case a module couldn't be found
-                except ModuleNotFoundError:
-                    print("Could not find \"main\" module within the " + directory + " folder.")
+            # In case the directory name was resulting in an error, for example it had a dot ('.') character
+            except TypeError:
+                print("Invalid name for the " + directory + " directory.")
 
-                # In case the directory name was resulting in an error, for example it had a dot ('.') character
-                except TypeError:
-                    print("Invalid name for the " + directory + " directory.")
+            # In case a function couldn't be found
+            except AttributeError:
+                print("Could not find \"main\" function within the " + directory + " folder.")
 
-                # In case a function couldn't be found
-                except AttributeError:
-                    print("Could not find \"main\" function within the " + directory + " folder.")
-
-                # In case the given name already exists
-                except NameError:
-                    print("Function !" + directory + " was already added to the server.")
+            # In case the given name already exists
+            except NameError:
+                print("Function !" + directory + " was already added to the server.")
 
     def run(self):
 
@@ -163,7 +162,7 @@ class Server:
             while True:
 
                 try:
-                    # Once connected, keep receiving the data
+                    # Once connected, keep receiving the data, break in case of errors
                     data = self.client_socket.recv(2048)
                 except ConnectionResetError:
                     break
@@ -178,10 +177,10 @@ class Server:
                     # Convert bytes to string, remove white spaces
                     data = data.decode("utf-8").strip()
                 except UnicodeDecodeError:
-                    # Fix if a invalid character was sent (ex. Putty's telnet sends hex characters at start)
+                    # Ignore if an invalid character was sent (ex. Putty's telnet sends hex characters at start)
                     data = None
 
-                # If data was valid (ex. Putty's telnet sends \r\n on hitting enter, which is not valid)
+                # If data was valid
                 if data:
 
                     # Inform what data was received

@@ -4,7 +4,7 @@ from solutions.reverse_programming.decrypt import decrypt
 
 class Client:
 
-    def __init__(self, ip='localhost', port=50000):
+    def __init__(self, *, ip='localhost', port=50000):
 
         # Save the ip and port information
         self.ip = ip
