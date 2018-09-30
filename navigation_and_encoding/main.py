@@ -23,11 +23,10 @@ TASKS = {
 
 
 def main(server, data):
-    # Initialise the message to send back to the client
-    message = ""
 
     # Get the number of elements passed in the command
     switch = len(data)
+
     # If only the command was sent or the help argument was included
     if switch == 1 or (switch == 2 and data[1] == "help"):
 

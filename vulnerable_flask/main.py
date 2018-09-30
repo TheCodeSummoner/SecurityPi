@@ -15,9 +15,6 @@ NAME = __name__.split(".")[0]
 
 def main(server, data):
 
-    # Initialise the message to send back to the client
-    message = ""
-
     # Get the number of elements passed in the command
     switch = len(data)
 

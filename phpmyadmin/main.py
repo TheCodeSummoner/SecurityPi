@@ -10,9 +10,6 @@ FLAG_PATH = path.join(sep, "var", "www", "html", "flag.txt")
 
 def main(server, data):
 
-    # Initialise the message to send back to the client
-    message = ""
-
     # Get the number of elements passed in the command
     switch = len(data)
 
