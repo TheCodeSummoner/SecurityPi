@@ -1,5 +1,5 @@
 # Solutions
-This document contains all of the solutions to the navigation and encoding tasks
+This document contains all the solutions to the navigation and encoding tasks
 
 ## Emperor
 #### Solution
@@ -42,7 +42,7 @@ This document contains all of the solutions to the navigation and encoding tasks
 1. Locate the file in the output directory
 2. Untar the file using the terminal
 3. View the file contents
-4. Convert from morse code
+4. Convert from Morse code
 5. Convert from binary
 6. Bask in the glorious reward
 7. Submit the answer to the server
