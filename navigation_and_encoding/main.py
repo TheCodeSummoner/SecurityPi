@@ -1,5 +1,9 @@
 from os import path
 import navigation_and_encoding.emperor as emperor
+import navigation_and_encoding.ring_ring as ring_ring
+import navigation_and_encoding.feel_the_challenge as feel_the_challenge
+import navigation_and_encoding.telegram as telegram
+import navigation_and_encoding.fibres as fibres
 
 # Get the base challenge name
 NAME = __name__.split(".")[0]
@@ -10,24 +14,35 @@ WORD_LIST_PATH = path.join(PATH, "wordlist.txt")
 
 # Declare dictionary with tasks
 TASKS = {
-    'emperor': emperor
+    'emperor': emperor,
+    'ring_ring': ring_ring,
+    'feel_the_challenge': feel_the_challenge,
+    'fibres': fibres,
+    'telegram': telegram
 }
 
 
 def main(server, data):
-
     # Initialise the message to send back to the client
     message = ""
 
     # Get the number of elements passed in the command
     switch = len(data)
-
     # If only the command was sent or the help argument was included
     if switch == 1 or (switch == 2 and data[1] == "help"):
 
         # Build the help message
         message = "!" + NAME + " emperor - start the emperor challenge" + "\r\n" + \
-                  "!" + NAME + " emperor <answer> - checks the answer of the emperor challenge" + "\r\n"
+                  "!" + NAME + " emperor <answer> - checks the answer of the emperor challenge" + "\r\n" + \
+                  "!" + NAME + " ring_ring - start the ring_ring challenge" + "\r\n" + \
+                  "!" + NAME + " ring_ring <answer> - checks the answer of the ring_ring challenge" + "\r\n" + \
+                  "!" + NAME + " feel_the_challenge - start the feel_the_challenge challenge" + "\r\n" + \
+                  "!" + NAME + " feel_the_challenge <answer> - checks the answer of the feel_the_challenge challenge" \
+                  + "\r\n" + \
+                  "!" + NAME + " fibres - start the fibres challenge" + "\r\n" + \
+                  "!" + NAME + " fibres <answer> - checks the answer of the fibres challenge" + "\r\n" + \
+                  "!" + NAME + " telegram - start the telegram challenge" + "\r\n" + \
+                  "!" + NAME + " telegram <answer> - checks the answer of the telegram challenge" + "\r\n"
 
     # If any non-help arguments were included
     elif switch == 2:

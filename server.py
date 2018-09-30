@@ -110,7 +110,6 @@ class Server:
 
         # Retrieve immediate child directories of root directory
         directories = [child if path.isdir(path.join(root, child)) else None for child in listdir(root)]
-
         # Iterate over each subfolder
         for directory in directories:
 
