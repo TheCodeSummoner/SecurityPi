@@ -48,6 +48,10 @@ def main(server, data):
             # Send the message that a website was created
             message = "Website started!" + "\r\n"
 
+        else:
+            # Inform the website is already up
+            message = "Website already running!" + "\r\n"
+
         # Add the flag to cache, to check the answer later
         server.cache[NAME + "_flag"] = flag
 

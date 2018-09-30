@@ -31,6 +31,9 @@ def main(server, data):
         # Add the flag to cache, to check the answer later
         server.cache[NAME + "_flag"] = flag
 
+        # Send the message that the challenge was setup successfully
+        message = "Challenge started!" + "\r\n"
+
     # If the help argument was included
     elif switch == 2 and data[1] == "help":
 
