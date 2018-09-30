@@ -100,7 +100,7 @@ def box_encode_letters(letters):
     # Calculate the number of columns to use
     key = math.ceil(math.sqrt(len(letters)))
     order = {
-        int(val): num for num, val in enumerate(range(0, key))
+        int(val): num for num, val in enumerate(range(0, int(key)))
     }
     cipher_text = ''
 
