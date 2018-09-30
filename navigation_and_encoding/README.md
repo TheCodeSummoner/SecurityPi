@@ -5,7 +5,7 @@ the linux terminal and testing your knowledge of
 a of encoding/encrypting methods.
 
 ### General notes
-Each challenge comprises of two parts. Finding the cipher text and, deciphering the message.
+Each challenge comprises of two parts. Finding the cipher text and deciphering the message.
 Finding the cipher text will teach the user about system navigation and file handling within Linux.
 Decoding the cipher text will test the users knowledge of encoding and encryption.
 
