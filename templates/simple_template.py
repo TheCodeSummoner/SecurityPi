@@ -1,25 +1,29 @@
-""" Challenge template for the server
+"""
+
+Challenge template for the server
 
 This is a template file prepared for everyone who would like to add a challenge to the Raspberry Pi's server.
 It will point out the most important bits of creating a challenge and guide through common Python requirements.
 
-Author: Kacper Florianski
+**Author**
 
-=== Purpose ===
+Kacper Florianski
+
+**Purpose**
 
 This template is a somewhat empty file for people who are confident in their python skills and/or would like to write
 their challenges almost from scratch. Please remember that different systems result in different behaviour and
 you should always try to write as universal code as possible, and test everything before public release.
 
-=== Testing ===
+**Testing**
 
-Rename this module to "main" and run the server to see this template in action.
+Rename this module to *main* and run the server to see this template in action.
 
 """
 
 
-# Define your main function - remember that it has to take EXACTLY 2 arguments - server and arguments passed in the
-# command, as well as it MUST be called "main". This function will be added to the server.
+# Define your main function - remember that it has to take EXACTLY 2 arguments - server and data, where data is a string
+# made of all arguments passed in the command. It also MUST be called "main" to be added to the server.
 def main(server, data):
 
     # Initialise the message to send back to the client
@@ -46,7 +50,7 @@ def main(server, data):
         # Do something
         pass
 
-    # You can handle more situations, but remember to put "else" at the end or check for "more than n" arguments
+    # You can handle more situations, but remember to put "else" at the end or check for "more than N" arguments
     else:
 
         # Do something, in this case if 2 or more arguments were passed, ex. !command answer1 answer2
