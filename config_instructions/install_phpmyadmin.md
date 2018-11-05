@@ -67,4 +67,5 @@ FLUSH PRIVILEGES;
 ### Sources
 
 http://www.hackingarticles.in/shell-uploading-web-server-phpmyadmin/
+
 https://askubuntu.com/questions/763336/cannot-enter-phpmyadmin-as-root-mysql-5-7
