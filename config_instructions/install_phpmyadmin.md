@@ -36,12 +36,21 @@ sudo service apache2 restart
 
 The service should now be accesible from a web browser via localhost/phpmyadmin (or ip/phpmyadmin where ip is PI's ip).
 
-**TO BE CHECKED**
+6. Run following command:
 
-Should be enough to make the challenge work
+```
+sudo chmod  o+w /var/www/html
+```
 
-sudo chmod  o+w /var/www/html should work
-sudo nano /etc/phpmyadmin/confg.inc.something all lines with AllowNoPassword to TRUE
+7. Run following command:
+
+```
+sudo nano /etc/phpmyadmin/config.inc.php
+```
+
+8. In the config file, uncomment all lines with `AllowNoPassword`
+
+#TODO: Not enough, fix it
 
 ### Source
 
