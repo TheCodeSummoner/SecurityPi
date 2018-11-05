@@ -33,7 +33,7 @@ Example file content:
 # By default this script does nothing.
 
 # Run the server
-sudo python3.6 /home/pi/Desktop/SecurityPi/server.py 2> /home/pi/Desktop/server_errors &
+sudo python3.6 /home/pi/Desktop/SecurityPi/server.py 2> /home/pi/Desktop/server_log &
 
 # Print the IP address
 _IP=$(hostname -I) || true
