@@ -2,7 +2,7 @@
 
 #### Logging in
 
-You can use a web browser to access all the services. The *phpMyAdmin* login site is at *ip/phpmyadmin* (where *ip* is PI's ip) and can be further accessed via the root login with default credentials (login *root* with no password).
+You can use a web browser to access all the services. The *phpMyAdmin* login site is at *ip/phpmyadmin* (where *ip* is PI's ip) and can be further accessed after logging in as an admin (login *admin* with no password).
 
 #### Shell exploit
 
