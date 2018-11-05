@@ -50,8 +50,21 @@ sudo nano /etc/phpmyadmin/config.inc.php
 
 8. In the config file, uncomment all lines with `AllowNoPassword`
 
-#TODO: Not enough, fix it
+9. Run following command:
 
-### Source
+```
+sudo mysql --user=root myqsl
+```
+
+10. Within the mysql terminal, run following block of commands:
+
+```
+CREATE USER 'admin'@'localhost' IDENTIFIED BY '';
+GRANT ALL PRIVILEGES ON *.* TO 'admin'@'localhost' WITH GRANT OPTION;
+FLUSH PRIVILEGES;
+```
+
+### Sources
 
 http://www.hackingarticles.in/shell-uploading-web-server-phpmyadmin/
+https://askubuntu.com/questions/763336/cannot-enter-phpmyadmin-as-root-mysql-5-7
