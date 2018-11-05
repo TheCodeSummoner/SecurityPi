@@ -13,7 +13,7 @@ sudo nano /etc/rc.local
 2. Add the following line to the file (before the default script which can print IP):
 
 ```
-sudo python3.6 /home/pi/Desktop/SecurityPi/server.py & 2> /home/pi/Desktop/server_errors
+sudo python3.6 /home/pi/Desktop/SecurityPi/server.py & 2> /home/pi/Desktop/server_log
 ```
 
 Example file content:
