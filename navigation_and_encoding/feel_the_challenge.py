@@ -1,13 +1,13 @@
 from random import random
-import string
+from string import ascii_lowercase
 
 # Get the base challenge name
 NAME = __name__.split(".")[0]
 
 
-def generate(server, name, path):
+def generate(server, name, word_list_path):
     # Create an answer string
-    words = " ".join(x for x in read_words(path))
+    words = " ".join(x for x in read_words(word_list_path))
 
     # Inform what words were generated
     print(name + " feel_the_challenge: Generated following words: " + words)
@@ -45,8 +45,8 @@ def check_answer(server, name, answer):
                + "\r\n"
 
 
-def read_words(path):
-    with open(path, encoding="utf-8") as f:
+def read_words(file_path):
+    with open(file_path, encoding="utf-8") as f:
         # Get the words from the file
         data = f.readlines()
 
@@ -76,7 +76,7 @@ def generate_cipher_text(words):
 
 def encode_letters(letters):
     # Perform the shift
-    alphabet = string.ascii_lowercase
+    alphabet = ascii_lowercase
     braille_alphabet = "⠁⠃⠉⠙⠑⠋⠛⠓⠊⠚⠅⠇⠍⠝⠕⠏⠟⠗⠎⠞⠥⠧⠺⠭⠽⠵"
     table = str.maketrans(alphabet, braille_alphabet)
     return letters.translate(table)

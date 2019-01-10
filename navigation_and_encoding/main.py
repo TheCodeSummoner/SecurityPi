@@ -1,9 +1,5 @@
 from os import path
-import navigation_and_encoding.emperor as emperor
-import navigation_and_encoding.ring_ring as ring_ring
-import navigation_and_encoding.feel_the_challenge as feel_the_challenge
-import navigation_and_encoding.telegram as telegram
-import navigation_and_encoding.fibres as fibres
+from navigation_and_encoding import emperor, ring_ring, feel_the_challenge, telegram, fibres
 
 # Get the base challenge name
 NAME = __name__.split(".")[0]

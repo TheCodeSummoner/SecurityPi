@@ -1,15 +1,20 @@
 from random import random
-import os.path
-import os
-import tarfile
+from tarfile import open as tar_open
+from os import path, remove
 
 # Get the base challenge name
 NAME = __name__.split(".")[0]
 
+# Declare paths to the files
+PATH = path.normpath(path.dirname(__file__))
+FLAG_PATH = path.join(PATH, "outputs", "telegram.txt")
+TAR_FILE_PATH = path.join(PATH, "outputs", "telegram.tar.gz")
+FLAG_ART = path.join(PATH, "flag.txt")
 
-def generate(server, name, path):
+
+def generate(server, name, word_list_path):
     # Create an answer string
-    words = " ".join(x for x in read_words(path))
+    words = " ".join(x for x in read_words(word_list_path))
 
     # Inform what words were generated
     print(name + " telegram: Generated following words: " + words)
@@ -20,19 +25,15 @@ def generate(server, name, path):
     # Generate the cipher text
     cipher_text = generate_cipher_text(words)
 
-    # Output the cipher text to a file
-    complete_name = os.path.join("navigation_and_encoding/outputs", "telegram.tar.gz")
-    temp_name = os.path.join("navigation_and_encoding/outputs", "telegram.txt")
-
     # create the file
-    temp_file_out = open(temp_name, "w")
+    temp_file_out = open(FLAG_PATH, "w")
     temp_file_out.write(cipher_text)
     temp_file_out.close()
 
-    with tarfile.open(complete_name, "w:gz") as tar:
-        tar.add(temp_name, arcname=os.path.basename("navigation_and_encoding"))
+    with tar_open(TAR_FILE_PATH, "w:gz") as tar:
+        tar.add(FLAG_PATH, arcname=path.basename("navigation_and_encoding"))
         tar.close()
-    os.remove(temp_name)
+    remove(FLAG_PATH)
     # server debug message
     print("telegram output successfully created:" + cipher_text)
     # Inform the user that the challenge was generated successfully
@@ -60,8 +61,8 @@ def check_answer(server, name, answer):
         return "No message was generated first! Type !" + name + " telegram before sending an answer to it." + "\r\n"
 
 
-def read_words(path):
-    with open(path, encoding="utf-8") as f:
+def read_words(file_path):
+    with open(file_path, encoding="utf-8") as f:
         # Get the words from the file
         data = f.readlines()
 
@@ -84,7 +85,7 @@ def read_words(path):
 
 def generate_cipher_text(words):
     # template text
-    file_object = open("navigation_and_encoding/flag.txt", "r")
+    file_object = open(FLAG_ART, "r")
     template = file_object.read()
     file_object.close()
 

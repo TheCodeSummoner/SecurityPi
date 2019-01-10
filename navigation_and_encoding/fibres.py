@@ -1,13 +1,17 @@
 from random import random
-import os
+from os import path
 
 # Get the base challenge name
 NAME = __name__.split(".")[0]
 
+# Declare paths to the files
+PATH = path.normpath(path.dirname(__file__))
+FLAG_PATH = path.join(PATH, "outputs", "fibres.txt")
 
-def generate(server, name, path):
+
+def generate(server, name, word_list_path):
     # Create an answer string
-    words = " ".join(x for x in read_words(path))
+    words = " ".join(x for x in read_words(word_list_path))
 
     # Inform what words were generated
     print(name + " fibres: Generated following words: " + words)
@@ -19,8 +23,7 @@ def generate(server, name, path):
     cipher_text = generate_cipher_text(words)
 
     # Output the cipher text to a file
-    complete_name = os.path.join("navigation_and_encoding/outputs", "fibres.txt")
-    file_out = open(complete_name, "w")
+    file_out = open(FLAG_PATH, "w")
     file_out.write(cipher_text)
     file_out.close()
     # Inform the user that the challenge was generated successfully
@@ -47,8 +50,8 @@ def check_answer(server, name, answer):
         return "No message was generated first! Type !" + name + " fibres before sending an answer to it." + "\r\n"
 
 
-def read_words(path):
-    with open(path, encoding="utf-8") as f:
+def read_words(file_path):
+    with open(file_path, encoding="utf-8") as f:
         # Get the words from the file
         data = f.readlines()
 

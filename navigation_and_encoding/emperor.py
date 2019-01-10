@@ -1,15 +1,19 @@
 from random import random
-import math
-import string
-import os.path
+from math import ceil, sqrt
+from string import ascii_lowercase
+from os import path
 
 # Get the base challenge name
 NAME = __name__.split(".")[0]
 
+# Declare paths to the files
+PATH = path.normpath(path.dirname(__file__))
+FLAG_PATH = path.join(PATH, "outputs", "emperor.txt")
 
-def generate(server, name, path):
+
+def generate(server, name, word_list_path):
     # Create an answer string
-    words = " ".join(x for x in read_words(path))
+    words = " ".join(x for x in read_words(word_list_path))
 
     # Inform what words were generated
     print(name + " emperor: Generated following words: " + words)
@@ -20,11 +24,8 @@ def generate(server, name, path):
     # Generate the cipher text
     cipher_text = generate_cipher_text(words)
 
-    # Output the cipher text to a file
-    complete_name = os.path.join("navigation_and_encoding/outputs", "emperor.txt")
-
-    # output the file
-    file_out = open(complete_name, "w")
+    # Output the file with the cipher
+    file_out = open(FLAG_PATH, "w")
     file_out.write(cipher_text)
     file_out.close()
 
@@ -55,8 +56,8 @@ def check_answer(server, name, answer):
         return "No message was generated first! Type !" + name + " emperor before sending an answer to it." + "\r\n"
 
 
-def read_words(path):
-    with open(path, encoding="utf-8") as f:
+def read_words(file_path):
+    with open(file_path, encoding="utf-8") as f:
         # Get the words from the file
         data = f.readlines()
 
@@ -90,7 +91,7 @@ def rotate_letters(letters):
     # Hard coded shift value
     shift = 13
     # Perform the shift
-    alphabet = string.ascii_lowercase
+    alphabet = ascii_lowercase
     shifted_alphabet = alphabet[shift:] + alphabet[:shift]
     table = str.maketrans(alphabet, shifted_alphabet)
     return letters.translate(table)
@@ -98,7 +99,7 @@ def rotate_letters(letters):
 
 def box_encode_letters(letters):
     # Calculate the number of columns to use
-    key = math.ceil(math.sqrt(len(letters)))
+    key = ceil(sqrt(len(letters)))
     order = {
         int(val): num for num, val in enumerate(range(0, int(key)))
     }

@@ -6,7 +6,7 @@ from vulnerable_flask.website import start_app
 from multiprocessing import Process
 
 # Declare paths to the files
-PATH = path.dirname(__file__)
+PATH = path.normpath(path.dirname(__file__))
 FLAG_PATH = path.join(PATH, "secrets", "flag.txt")
 
 # Get the challenge name
