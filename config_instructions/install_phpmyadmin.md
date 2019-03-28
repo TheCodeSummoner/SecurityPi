@@ -53,7 +53,7 @@ sudo nano /etc/phpmyadmin/config.inc.php
 9. Run following command:
 
 ```
-sudo mysql --user=root myqsl
+sudo mysql --user=root mysql
 ```
 
 10. Within the mysql terminal, run following block of commands:
