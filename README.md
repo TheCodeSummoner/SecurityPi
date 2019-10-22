@@ -1,6 +1,6 @@
 # SecurityPi
 
-A security-learning platform designed for Raspberry PI, with the purpose of teaching cyber security through a set of challenges. Includes a server with tasks as well as instructions on modifying standard Raspbian image to create the desired system. Created during the internship at Newcastle University, supervised by its Security and Resilient Systems sector.
+A security-learning platform designed for Raspberry PI, with the purpose of teaching cyber security through a set of challenges. Includes a server with tasks as well as instructions on modifying standard Raspbian image to create the desired system. Created during the 70-hours long internship at Newcastle University, supervised by its Security and Resilient Systems sector.
 
 ## Connecting to the server
 
